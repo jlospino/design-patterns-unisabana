@@ -44,5 +44,4 @@ es necesario.
 
 ```bash
 npx ts-node ejercicio_2_notificaciones/index.ts
-```"
-
+```
