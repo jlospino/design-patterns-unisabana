@@ -11,7 +11,7 @@
 
 ## Justificación
 
-> _Explica por qué se eligió este patrón para solucionar el problema._
+- Se aplica el patrón Bridge para separar la abstracción de las notificaciones de su implementación en cada plataforma. Esto evita el crecimiento desmedido del código y garantiza la flexibilidad y el aislamiento de responsabilidades que requiere el proyecto.
 
 ## Diagrama de Clases UML
 
