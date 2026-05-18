@@ -7,7 +7,30 @@
 
 ## Descripción del Problema
 
-> _Describe brevemente el problema que resuelve este patrón en el contexto del ejercicio._
+- **Escenario:**
+Estás desarrollando una aplicación que gestiona la visualización de notificaciones en
+diferentes plataformas (por ejemplo: escritorio, móvil, web). Las notificaciones pueden ser
+de distintos tipos (mensaje, alerta, advertencia, confirmación) y cada tipo puede mostrarse
+de distintas formas según la plataforma.
+
+- **Problema:**
+ Si usas herencia tradicional, tendrías que crear clases como:
+
+  - NotificacionMensajeWeb, NotificacionAlertaWeb, NotificacionMensajeMovil, NotificacionAlertaMovil, etc.
+
+  - Esto lleva rápidamente a una explosión combinatoria de subclases difíciles de mantener.
+
+- **Beneficios esperados de la solución:**
+  - Separación de responsabilidades: Separar la lógica de la notificación del medio por el
+que se presenta.
+
+  - Escalabilidad: Poder agregar nuevas plataformas o tipos de notificación sin modificar
+el resto del sistema.
+
+  - Reducción de clases: Evitar la multiplicación de clases para cada combinación.
+
+  - Flexibilidad en tiempo de ejecución: Poder cambiar la plataforma dinámicamente si
+es necesario.
 
 ## Justificación
 
@@ -15,10 +38,54 @@
 
 ## Diagrama de Clases UML
 
-> _Inserta aquí el diagrama UML (imagen o enlace)._
+<img width="956" height="425" alt="DiagranaClasesUML" src="https://github.com/user-attachments/assets/f8ade0d8-0260-40a1-a1d0-5decf62e6f13" />
 
 ## Ejecución
 
-```bash
-npx ts-node ejercicio_2_notificaciones/index.ts
-```
+  - **Código de implementación:**
+
+```typescript
+
+interface IPlataforma {
+  mostrar(tipo: string, contenido: string): void;
+}
+
+class WebPlataforma implements IPlataforma {
+  mostrar(tipo: string, contenido: string): void {
+    console.log(`[Web] ${tipo}: ${contenido}`);
+  }
+}
+
+class MovilPlataforma implements IPlataforma {
+  mostrar(tipo: string, contenido: string): void {
+    console.log(`[Mobile Push] ${tipo}: ${contenido}`);
+  }
+}
+
+abstract class Notificacion {
+  constructor(protected plataforma: IPlataforma) {}
+
+  abstract enviar(contenido: string): void;
+}
+
+class NotificacionAlerta extends Notificacion {
+  constructor(plataforma: IPlataforma) {
+    super(plataforma);
+  }
+
+  public enviar(contenido: string): void {
+    this.plataforma.mostrar("ALERTA", contenido);
+  }
+}
+
+// --- Ejemplo de Uso para Verificación ---
+const plataformaWeb = new WebPlataforma();
+const alertaWeb = new NotificacionAlerta(plataformaWeb);
+alertaWeb.enviar("Sesión iniciada desde un nuevo dispositivo");
+
+const plataformaMovil = new MovilPlataforma();
+const alertaMovil = new NotificacionAlerta(plataformaMovil);
+alertaMovil.enviar("Batería baja en el dispositivo");
+
+
+
