@@ -15,7 +15,7 @@
 
 ## Diagrama de Clases UML
 
-> _Inserta aquí el diagrama UML (imagen o enlace)._
+<img width="474" height="710" alt="image" src="https://github.com/user-attachments/assets/7fab743d-4e04-432c-b3f5-f20bb2a82ce3" />
 
 ## Ejecución
 
