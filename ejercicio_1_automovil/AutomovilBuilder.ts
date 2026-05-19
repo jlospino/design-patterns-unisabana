@@ -1,119 +1,73 @@
-/**
- * BUILDER CONCRETO: AutomovilBuilder
- * 
- * Implementa la interfaz IAutomobilBuilder.
- * Construye el objeto Automovil paso a paso.
- * Mantiene el estado del automóvil durante la construcción.
- */
 import { Automovil } from "./Automovil";
-import { IAutomobilBuilder } from "./IAutomobilBuilder";
-
-export class AutomovilBuilder implements IAutomobilBuilder {
-  private automovil!: Automovil;
+export class AutomovilBuilder {
+  private motor: string = "Estándar";
+  private color: string = "Blanco";
+  private rines: number = 15;
+  private sistemaDeSonido: string = "Básico";
+  private interiores: string = "Estándar";
+  private techoSolar: boolean = false;
+  private gps: boolean = false;
 
   constructor() {
-    this.reset();
+    this.resetState();
   }
 
-  reset(): void {
-    this.automovil = new Automovil(
-      "Estándar",
-      "Blanco",
-      15,
-      "Básico",
-      "Estándar",
-      false,
-      false
-    );
+  private resetState(): void {
+    this.motor = "Estándar";
+    this.color = "Blanco";
+    this.rines = 15;
+    this.sistemaDeSonido = "Básico";
+    this.interiores = "Estándar";
+    this.techoSolar = false;
+    this.gps = false;
   }
 
-  setMotor(motor: string): void {
-    this.automovil = new Automovil(
-      motor,
-      this.automovil.color,
-      this.automovil.rines,
-      this.automovil.sistemaDeSonido,
-      this.automovil.interiores,
-      this.automovil.techoSolar,
-      this.automovil.gps
-    );
+  setMotor(motor: string): AutomovilBuilder {
+    this.motor = motor;
+    return this;
   }
 
-  setColor(color: string): void {
-    this.automovil = new Automovil(
-      this.automovil.motor,
-      color,
-      this.automovil.rines,
-      this.automovil.sistemaDeSonido,
-      this.automovil.interiores,
-      this.automovil.techoSolar,
-      this.automovil.gps
-    );
+  setColor(color: string): AutomovilBuilder {
+    this.color = color;
+    return this;
   }
 
-  setRines(rines: number): void {
-    this.automovil = new Automovil(
-      this.automovil.motor,
-      this.automovil.color,
-      rines,
-      this.automovil.sistemaDeSonido,
-      this.automovil.interiores,
-      this.automovil.techoSolar,
-      this.automovil.gps
-    );
+  setRines(rines: number): AutomovilBuilder {
+    this.rines = rines;
+    return this;
   }
 
-  setSistemaDeSonido(sistemaDeSonido: string): void {
-    this.automovil = new Automovil(
-      this.automovil.motor,
-      this.automovil.color,
-      this.automovil.rines,
-      sistemaDeSonido,
-      this.automovil.interiores,
-      this.automovil.techoSolar,
-      this.automovil.gps
-    );
+  setSistemaDeSonido(sistemaDeSonido: string): AutomovilBuilder {
+    this.sistemaDeSonido = sistemaDeSonido;
+    return this;
   }
 
-  setInteriores(interiores: string): void {
-    this.automovil = new Automovil(
-      this.automovil.motor,
-      this.automovil.color,
-      this.automovil.rines,
-      this.automovil.sistemaDeSonido,
-      interiores,
-      this.automovil.techoSolar,
-      this.automovil.gps
-    );
+  setInteriores(interiores: string): AutomovilBuilder {
+    this.interiores = interiores;
+    return this;
   }
 
-  setTechoSolar(techoSolar: boolean): void {
-    this.automovil = new Automovil(
-      this.automovil.motor,
-      this.automovil.color,
-      this.automovil.rines,
-      this.automovil.sistemaDeSonido,
-      this.automovil.interiores,
-      techoSolar,
-      this.automovil.gps
-    );
+  setTechoSolar(techoSolar: boolean): AutomovilBuilder {
+    this.techoSolar = techoSolar;
+    return this;
   }
 
-  setGPS(gps: boolean): void {
-    this.automovil = new Automovil(
-      this.automovil.motor,
-      this.automovil.color,
-      this.automovil.rines,
-      this.automovil.sistemaDeSonido,
-      this.automovil.interiores,
-      this.automovil.techoSolar,
-      gps
-    );
+  setGPS(gps: boolean): AutomovilBuilder {
+    this.gps = gps;
+    return this;
   }
 
   getResult(): Automovil {
-    const resultado = this.automovil;
-    this.reset();
+    const resultado = new Automovil(
+      this.motor,
+      this.color,
+      this.rines,
+      this.sistemaDeSonido,
+      this.interiores,
+      this.techoSolar,
+      this.gps
+    );
+    this.resetState();
     return resultado;
   }
 }

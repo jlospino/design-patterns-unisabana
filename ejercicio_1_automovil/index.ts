@@ -1,9 +1,6 @@
 import { AutomovilBuilder } from "./AutomovilBuilder";
 import { Director } from "./Director";
 
-// ========================================
-// EJEMPLOS DE USO
-// ========================================
 console.log("PATRÓN BUILDER - DEMOSTRACIÓN COMPLETA\n");
 
 const builder = new AutomovilBuilder();

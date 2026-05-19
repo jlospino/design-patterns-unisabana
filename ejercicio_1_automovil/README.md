@@ -75,7 +75,7 @@ Se escogió el patrón de diseño **Builder** porque:
 
 ### Comando Principal
 ```bash
-npx ts-node ejercicio_1_automovil/Index.ts
+npx ts-node ejercicio_1_automovil/index.ts
 ```
 
 Este comando ejecuta la demostración completa con 3 ejemplos prácticos y visualización detallada.

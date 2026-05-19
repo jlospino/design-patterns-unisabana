@@ -1,14 +1,14 @@
 import { Automovil } from "./Automovil";
-import { IAutomobilBuilder } from "./IAutomobilBuilder";
+import { AutomovilBuilder } from "./AutomovilBuilder";
 
 export class Director {
-  private builder: IAutomobilBuilder;
+  private builder: AutomovilBuilder;
 
-  constructor(builder: IAutomobilBuilder) {
+  constructor(builder: AutomovilBuilder) {
     this.builder = builder;
   }
 
-  changeBuilder(builder: IAutomobilBuilder): void {
+  changeBuilder(builder: AutomovilBuilder): void {
     this.builder = builder;
   }
 
@@ -17,33 +17,32 @@ export class Director {
   }
 
   buildCarDeportivo(): Automovil {
-    this.builder.reset();
-    this.builder.setMotor("V8 Turbo");
-    this.builder.setColor("Rojo Ferrari");
-    this.builder.setRines(20);
-    this.builder.setSistemaDeSonido("Premium Bose");
-    this.builder.setInteriores("Cuero");
-    this.builder.setTechoSolar(true);
-    this.builder.setGPS(true);
-    return this.builder.getResult();
+    return this.builder
+      .setMotor("V8 Turbo")
+      .setColor("Rojo Ferrari")
+      .setRines(20)
+      .setSistemaDeSonido("Premium Bose")
+      .setInteriores("Cuero")
+      .setTechoSolar(true)
+      .setGPS(true)
+      .getResult();
   }
 
   buildCarEconomico(): Automovil {
-    this.builder.reset();
-    this.builder.setColor("Blanco");
-    // Usa los valores por defecto para los demás
-    return this.builder.getResult();
+    return this.builder
+      .setColor("Azul")
+      .getResult();
   }
 
   buildCarDeLujo(): Automovil {
-    this.builder.reset();
-    this.builder.setMotor("V12");
-    this.builder.setColor("Negro Mate");
-    this.builder.setRines(22);
-    this.builder.setSistemaDeSonido("Premium Bose");
-    this.builder.setInteriores("Cuero");
-    this.builder.setTechoSolar(true);
-    this.builder.setGPS(true);
-    return this.builder.getResult();
+    return this.builder
+      .setMotor("V12")
+      .setColor("Negro Mate")
+      .setRines(22)
+      .setSistemaDeSonido("Premium Bose")
+      .setInteriores("Cuero")
+      .setTechoSolar(true)
+      .setGPS(true)
+      .getResult();
   }
 }

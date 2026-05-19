@@ -1,9 +1,3 @@
-/**
- * PRODUCTO: Automovil
- * 
- * Objeto inmutable final creado por el Builder.
- * Contiene todas las propiedades configurables del automóvil.
- */
 export class Automovil {
   constructor(
     public readonly motor: string,
