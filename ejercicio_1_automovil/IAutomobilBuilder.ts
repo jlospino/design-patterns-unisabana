@@ -1,13 +1,12 @@
 import { Automovil } from "./Automovil";
 
 export interface IAutomobilBuilder {
-  reset(): void;
-  setMotor(motor: string): void;
-  setColor(color: string): void;
-  setRines(rines: number): void;
-  setSistemaDeSonido(sistemaDeSonido: string): void;
-  setInteriores(interiores: string): void;
-  setTechoSolar(techoSolar: boolean): void;
-  setGPS(gps: boolean): void;
+  setMotor(motor: string): IAutomobilBuilder;
+  setColor(color: string): IAutomobilBuilder;
+  setRines(rines: number): IAutomobilBuilder;
+  setSistemaDeSonido(sistemaDeSonido: string): IAutomobilBuilder;
+  setInteriores(interiores: string): IAutomobilBuilder;
+  setTechoSolar(techoSolar: boolean): IAutomobilBuilder;
+  setGPS(gps: boolean): IAutomobilBuilder;
   getResult(): Automovil;
 }

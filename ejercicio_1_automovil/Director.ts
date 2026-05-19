@@ -1,14 +1,14 @@
 import { Automovil } from "./Automovil";
-import { AutomovilBuilder } from "./AutomovilBuilder";
+import { IAutomobilBuilder } from "./IAutomobilBuilder";
 
 export class Director {
-  private builder: AutomovilBuilder;
+  private builder: IAutomobilBuilder;
 
-  constructor(builder: AutomovilBuilder) {
+  constructor(builder: IAutomobilBuilder) {
     this.builder = builder;
   }
 
-  changeBuilder(builder: AutomovilBuilder): void {
+  changeBuilder(builder: IAutomobilBuilder): void {
     this.builder = builder;
   }
 

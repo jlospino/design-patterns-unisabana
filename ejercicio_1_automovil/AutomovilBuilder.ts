@@ -1,5 +1,7 @@
 import { Automovil } from "./Automovil";
-export class AutomovilBuilder {
+import { IAutomobilBuilder } from "./IAutomobilBuilder";
+
+export class AutomovilBuilder implements IAutomobilBuilder {
   private motor: string = "Estándar";
   private color: string = "Blanco";
   private rines: number = 15;
@@ -22,37 +24,37 @@ export class AutomovilBuilder {
     this.gps = false;
   }
 
-  setMotor(motor: string): AutomovilBuilder {
+  setMotor(motor: string): IAutomobilBuilder {
     this.motor = motor;
     return this;
   }
 
-  setColor(color: string): AutomovilBuilder {
+  setColor(color: string): IAutomobilBuilder {
     this.color = color;
     return this;
   }
 
-  setRines(rines: number): AutomovilBuilder {
+  setRines(rines: number): IAutomobilBuilder {
     this.rines = rines;
     return this;
   }
 
-  setSistemaDeSonido(sistemaDeSonido: string): AutomovilBuilder {
+  setSistemaDeSonido(sistemaDeSonido: string): IAutomobilBuilder {
     this.sistemaDeSonido = sistemaDeSonido;
     return this;
   }
 
-  setInteriores(interiores: string): AutomovilBuilder {
+  setInteriores(interiores: string): IAutomobilBuilder {
     this.interiores = interiores;
     return this;
   }
 
-  setTechoSolar(techoSolar: boolean): AutomovilBuilder {
+  setTechoSolar(techoSolar: boolean): IAutomobilBuilder {
     this.techoSolar = techoSolar;
     return this;
   }
 
-  setGPS(gps: boolean): AutomovilBuilder {
+  setGPS(gps: boolean): IAutomobilBuilder {
     this.gps = gps;
     return this;
   }
