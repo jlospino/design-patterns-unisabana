@@ -66,7 +66,7 @@ Se escogió el patrón de diseño **Builder** porque:
 
 ### Componentes:
 
-- **IAutomobilBuilder (Interfaz):** Define el contrato que todo builder debe cumplir
+- **IAutomovilBuilder (Interfaz):** Define el contrato que todo builder debe cumplir
 - **AutomovilBuilder (Builder Concreto):** Implementa los pasos de construcción
 - **Director:** Encapsula la lógica compleja de construcción con métodos predefinidos
 - **Automovil (Producto):** Objeto inmutable final creado por el builder
@@ -84,7 +84,7 @@ Este comando ejecuta la demostración completa con 3 ejemplos prácticos y visua
 ```
 ejercicio_1_automovil/
 ├── Automovil.ts          # Clase producto (objeto inmutable)
-├── IAutomobilBuilder.ts  # Interfaz del builder (contrato)
+├── IAutomovilBuilder.ts  # Interfaz del builder (contrato)
 ├── AutomovilBuilder.ts   # Builder concreto (implementación)
 ├── Director.ts           # Director (lógica de construcción) - PUNTO DE ENTRADA
 ├── index.ts              # Archivo histórico con ejemplos básicos
