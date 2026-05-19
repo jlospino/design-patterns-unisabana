@@ -11,7 +11,7 @@ function main() {
   user2.sendMessage("I'm fine, thank you!");
   user3.sendMessage("Nice to meet you!");
 
-  user2.getDisplayName();
+  console.log(`display name for user: ${user2.getDisplayName()}`);
 }
 
 main();

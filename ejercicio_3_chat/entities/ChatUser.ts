@@ -19,7 +19,7 @@ export class ChatUser extends User {
     console.log(`[${this.displayName}] received message: ${message}`);
   }
 
-  getDisplayName(): void {
-    console.log(`[${this.displayName}] display name: ${this.displayName}`);
+  getDisplayName(): string {
+    return this.displayName;
   }
 }

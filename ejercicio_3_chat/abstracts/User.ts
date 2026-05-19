@@ -8,7 +8,5 @@ export abstract class User implements IUser {
     this.mediator.sendMessage(message, this);
   }
 
-  receiveMessage(message: string): void {
-    console.log(`${this.constructor.name} received message: ${message}`);
-  }
+  abstract receiveMessage(message: string): void;
 }
