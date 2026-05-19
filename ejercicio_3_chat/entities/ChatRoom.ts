@@ -1,18 +1,18 @@
-import { User } from "../abstracts/User";
-import { IChatMediator } from "../contracts/IChatMediator";
+import type { IUser } from "../contracts/IUser";
+import type { IChatMediator } from "../contracts/IChatMediator";
 
 export class ChatRoom implements IChatMediator {
-  private users: User[] = [];
+  private users: IUser[] = [];
 
-  sendMessage(message: string, sender: User): void {
-    this.users.forEach(user => {
+  sendMessage(message: string, sender: IUser): void {
+    this.users.forEach((user) => {
       if (user !== sender) {
         user.receiveMessage(message);
       }
     });
   }
 
-  addUser(user: User): void {
+  addUser(user: IUser): void {
     this.users.push(user);
   }
 }

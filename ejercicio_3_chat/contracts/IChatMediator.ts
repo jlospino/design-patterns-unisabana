@@ -1,6 +1,6 @@
-import { User } from "../abstracts/User";
+import type { IUser } from "./IUser";
 
 export interface IChatMediator {
-  sendMessage(message: string, sender: User): void;
-  addUser(user: User): void;
+  sendMessage(message: string, sender: IUser): void;
+  addUser(user: IUser): void;
 }

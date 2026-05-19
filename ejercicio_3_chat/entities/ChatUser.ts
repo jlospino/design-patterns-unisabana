@@ -1,5 +1,5 @@
 import { User } from "../abstracts/User";
-import { IChatMediator } from "../contracts/IChatMediator";
+import type { IChatMediator } from "../contracts/IChatMediator";
 
 export class ChatUser extends User {
   constructor(
@@ -10,7 +10,16 @@ export class ChatUser extends User {
     mediator.addUser(this);
   }
 
+  override sendMessage(message: string): void {
+    console.log(`[${this.displayName}] sending message: ${message}`);
+    super.sendMessage(message);
+  }
+
   override receiveMessage(message: string): void {
-    console.log(`${this.displayName} received message: ${message}`);
+    console.log(`[${this.displayName}] received message: ${message}`);
+  }
+
+  getDisplayName(): void {
+    console.log(`[${this.displayName}] display name: ${this.displayName}`);
   }
 }

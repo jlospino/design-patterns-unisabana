@@ -1,6 +1,7 @@
-import { IChatMediator } from "../contracts/IChatMediator";
+import type { IUser } from "../contracts/IUser";
+import type { IChatMediator } from "../contracts/IChatMediator";
 
-export abstract class User {
+export abstract class User implements IUser {
   constructor(protected mediator: IChatMediator) {}
 
   sendMessage(message: string): void {
