@@ -40,7 +40,20 @@ es necesario.
 
 <img width="956" height="425" alt="DiagranaClasesUML" src="https://github.com/user-attachments/assets/f8ade0d8-0260-40a1-a1d0-5decf62e6f13" />
 
-## Ejecución
+## Estructura de Archivos
+
+| Archivo | Rol en el patron |
+|---|---|
+| `Plataforma.ts` | Interfaz de implementacion (lado derecho del bridge) |
+| `PlataformaWeb.ts` | Implementacion concreta para la plataforma web |
+| `PlataformaMovil.ts` | Implementacion concreta para la plataforma movil |
+| `PlataformaEscritorio.ts` | Implementacion concreta para la plataforma de escritorio |
+| `Notificacion.ts` | Abstraccion base — mantiene la referencia a `Plataforma` por composicion |
+| `NotificacionMensaje.ts` | Abstraccion refinada para mensajes informativos |
+| `NotificacionAlerta.ts` | Abstraccion refinada para alertas criticas |
+| `index.ts` | Punto de entrada — instancia y demuestra el uso del patron |
+
+## Ejecucion
 
 ```bash
 npx ts-node ejercicio_2_notificaciones/index.ts
