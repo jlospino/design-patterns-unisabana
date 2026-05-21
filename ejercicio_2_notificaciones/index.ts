@@ -18,7 +18,5 @@ mensaje.enviar("Su reporte mensual ya esta disponible.");
 mensaje.cambiarPlataforma(movil);
 mensaje.enviar("Su reporte mensual ya esta disponible.");
 
-console.log("");
-
 const alerta = new NotificacionAlerta(escritorio);
 alerta.enviar("Se ha detectado un inicio de sesion sospechoso.");
